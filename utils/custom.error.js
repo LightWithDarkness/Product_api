@@ -1,5 +1,5 @@
-export const customError = (message, statusCode) => {
-    const err = new Error(message);
-    err.statusCode = statusCode;
-    return err;
+export const customError = (statusCode, message) => {
+    const error = new Error(message);
+    error.statusCode = Number.isInteger(statusCode) ? statusCode : 500; // Ensure it's a number
+    return error;
 };
